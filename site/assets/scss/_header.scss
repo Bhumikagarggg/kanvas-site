@@ -4,7 +4,8 @@
   z-index: 1000;
   background: transparent;
   padding: 0.75rem 2rem;
-
+  backdrop-filter: blur(12px) saturate(180%); 
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
   .container {
     display: flex;
     justify-content: space-between;
@@ -16,7 +17,7 @@
   .logo {
     display: flex;
     align-items: center;
-    
+
     .logo-img {
       height: 40px;
       width: auto;
@@ -31,30 +32,34 @@
     padding: 0;
 
     a {
-      color: #ffffff;
+      color: $color-text;
       text-decoration: none;
       font-size: 0.95rem;
       transition: color 0.3s ease;
 
       &:hover {
-        color: #00b399; 
+        color: $color-primary;
       }
     }
   }
+
   .btn-secondary {
-    color: #ffffff;     
-    font-size: 1.6rem;   
-    margin: 0 15px;      
+    color: $color-text;
+    font-size: 1.6rem;
+    margin: 0 15px;
     display: inline-block;
     vertical-align: middle;
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease;
 
     &:hover {
-      color: #00b399;
-      transform: translateY(-2px); 
+      color: $color-primary;
+      transform: translateY(-2px);
     }
   }
+
   .btn-primary {
-     transition: background-color 0.3s ease, box-shadow 0.3s ease; color: black;
+    color: $color-bg;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
 }
+

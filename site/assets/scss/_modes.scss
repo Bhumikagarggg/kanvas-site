@@ -1,41 +1,41 @@
 .modes-section {
   margin-top: 6rem;
   padding: 100px 20px;
-  background-color: #2a2e20;
+  background-color: $color-surface;
   text-align: center;
 
   .modes-header {
     margin-bottom: 30px;
 
     .modes-badge {
-      color: #b1b6b8;
-      font-size: 0.6rem;
+      color: $color-muted;
+      font-size: $font-size-xs;
       text-transform: uppercase;
       letter-spacing: 2px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 20px;
+      margin-bottom: $space-5;
 
       .dot {
         width: 6px;
         height: 6px;
-        background: #00b399;
+        background: $color-primary;
         border-radius: 50%;
       }
     }
 
     .modes-title {
-      margin-top:1rem;
-      font-size: 2.5rem;
-      color: #fff;
-      margin-bottom: 1rem;
+      margin-top: $space-4;
+      font-size: $font-size-xl;
+      color: $color-text;
+      margin-bottom: $space-4;
       font-weight: 800;
     }
 
     .modes-subtitle {
-      color: #b1b6b8;
+      color: $color-muted;
       max-width: 600px;
       margin: 0 auto;
     }
@@ -46,51 +46,32 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     max-width: 1200px;
-    margin: 0 5rem;
+    margin: 0 auto;
+    padding: 0 2rem;
   }
 
   .mode-card {
-    background: #2a2e20;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 24px 32px;
-    border-radius: 16px;
+    background: $color-surface;
+    border: 1px solid $color-border;
+    padding: $space-6 $space-7;
+    border-radius: $radius-md;
     text-align: left;
-    transition: all 0.3s ease;
-
-    .icon-container {
-        // 2. Reduce gap after icon
-        margin-bottom: 16px; 
-        width: 32px;
-        height: 32px;
-    }
+    transition: $transition;
 
     &:hover {
-      border-color: rgba(0, 179, 153, 0.4);
+      border-color: $color-border-hover;
       transform: translateY(-10px);
     }
 
-    &:nth-child(1), &:nth-child(2) {
-      i { color: #00b399; } 
-    }
-
-    .mode-icon {
-      font-size: 1rem;
-      margin-bottom: 20px;
-
-      &.teal { color: #00b399; }
-      &.green { color: #4caf50; }
-      &.yellow { color: #ffeb3b; }
-    }
-
     h3 {
-      color: #fff;
-      margin-bottom: 8px; 
-      font-size: 1rem;
+      color: $color-text;
+      margin-bottom: $space-2;
+      font-size: $font-size-lg;
     }
 
     p {
-      color: #b1b6b8;
-      margin-bottom: 16px;
+      color: $color-muted;
+      margin-bottom: $space-4;
       font-size: 0.9rem;
       line-height: 1.4;
     }
@@ -98,47 +79,47 @@
     .mode-features {
       list-style: none;
       padding: 0;
-      margin-bottom: 20px;
+      margin-bottom: $space-5;
 
       li {
-        color: #b1b6b8;
-        font-size: 0.85rem;
-        margin-bottom: 4px;
+        color: $color-muted;
+        font-size: $font-size-sm;
+        margin-bottom: $space-1;
 
         &:before {
           content: "•";
-          color: #00b399;
-          margin-right: 8px;
+          color: $color-primary;
+          margin-right: $space-2;
         }
       }
     }
 
     .learn-more {
-      color: #00b399;
+      color: $color-primary;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
 
       &:hover {
-        color:#e4d233;
+        color: $color-accent;
+
         i {
-            color:#e4d233
+          color: $color-accent;
         }
       }
-      
     }
   }
 
   .icon-container {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
+    margin-bottom: $space-4;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
     font-size: 1.2rem;
 
-    &.teal { color: #00b399; }
+    &.teal { color: $color-primary; }
     &.green { color: #4caf50; }
     &.yellow { color: #ffeb3b; }
 
@@ -146,40 +127,41 @@
       filter: drop-shadow(0 0 8px currentColor);
     }
   }
+
   .modes-footer {
-    margin-top: 20px;
+    margin-top: $space-5;
     display: flex;
     justify-content: center;
     padding: 0 20px;
 
     .footer-banner {
-      background-color: #2a2e20; // Matches your card color
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 12px 12px 12px 30px; // More padding on left for the text
-      border-radius: 10px; // Makes it a pill shape
+      background-color: $color-surface;
+      border: 1px solid $color-border;
+      padding: $space-3 $space-3 $space-3 $space-7;
+      border-radius: $radius-sm;
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: $space-7;
       max-width: fit-content;
 
       p {
-        color: #b1b6b8;
+        color: $color-muted;
         margin: 0;
-        font-size: 0.95rem;
+        font-size: $font-size-base;
       }
 
       .btn-get-started {
-        background-color: #00b399; // Meshery Teal
-        color: #050505;
+        background-color: $color-primary;
+        color: $color-bg;
         padding: 10px 24px;
-        border-radius: 10px;
+        border-radius: $radius-sm;
         text-decoration: none;
         font-weight: 700;
         font-size: 0.9rem;
-        transition: all 0.3s ease;
+        transition: $transition;
 
         &:hover {
-          background-color: #00d1b2;
+          background-color: lighten($color-primary, 8%);
           transform: scale(1.05);
         }
       }
