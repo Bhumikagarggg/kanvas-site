@@ -17,6 +17,7 @@
   const ANIMATION_DURATION = 3000; // 3 seconds
   const ANIMATION_INTERVAL = 6000; // 6 seconds between movements
   const CURSOR_SIZE = 50; // Default cursor size in pixels
+  const EDGE_PADDING = 50; // Padding from container edges
 
   /**
    * Initialize cursors in a container
@@ -25,6 +26,7 @@
     if (!container) return;
 
     const cursors = [];
+    const intervals = [];
     
     cursorIndices.forEach((index, i) => {
       if (index >= CURSORS.length) return;
@@ -44,13 +46,24 @@
     });
 
     // Continue animation loop
-    setInterval(() => {
+    const intervalId = setInterval(() => {
+      // Check if container still exists in DOM
+      if (!document.body.contains(container)) {
+        clearInterval(intervalId);
+        return;
+      }
+      
       cursors.forEach((cursor, i) => {
+        // Check if cursor still exists
+        if (!document.body.contains(cursor)) return;
+        
         setTimeout(() => {
           animateCursor(container, cursor);
         }, i * ANIMATION_DURATION);
       });
     }, ANIMATION_INTERVAL);
+    
+    intervals.push(intervalId);
   }
 
   /**
@@ -78,31 +91,36 @@
   }
 
   /**
+   * Get random position within container bounds
+   */
+  function getRandomPosition(container) {
+    const rect = container.getBoundingClientRect();
+    const maxX = Math.max(0, rect.width - CURSOR_SIZE - EDGE_PADDING);
+    const maxY = Math.max(0, rect.height - CURSOR_SIZE - EDGE_PADDING);
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+    
+    return { x: randomX, y: randomY };
+  }
+
+  /**
    * Set initial random position for cursor
    */
   function setInitialRandomPosition(container, element) {
-    const rect = container.getBoundingClientRect();
-    const maxX = rect.width - CURSOR_SIZE - 50;
-    const maxY = rect.height - CURSOR_SIZE - 50;
-    const randomX = Math.floor(Math.random() * Math.max(0, maxX));
-    const randomY = Math.floor(Math.random() * Math.max(0, maxY));
-    
-    element.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    const pos = getRandomPosition(container);
+    element.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
   }
 
   /**
    * Animate cursor to random position
    */
   function animateCursor(container, element) {
-    const rect = container.getBoundingClientRect();
-    const maxX = rect.width - CURSOR_SIZE - 50;
-    const maxY = rect.height - CURSOR_SIZE - 50;
-    const randomX = Math.floor(Math.random() * Math.max(0, maxX));
-    const randomY = Math.floor(Math.random() * Math.max(0, maxY));
+    const pos = getRandomPosition(container);
     
     element.style.transition = `transform ${ANIMATION_DURATION}ms ease`;
-    element.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    element.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
     
+    // Clear transition after animation completes
     setTimeout(() => {
       element.style.transition = '';
     }, ANIMATION_DURATION);
