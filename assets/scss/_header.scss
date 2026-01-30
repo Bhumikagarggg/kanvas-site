@@ -2,7 +2,6 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: $dark;
   padding: 0.75rem 2rem;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -31,41 +30,117 @@
   }
 
   .main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: .875rem 1.5rem;
+  border-radius: .75rem;
+  height: 20px;
+  align-items: center; // Ensures text is centered vertically
+  box-shadow: inset 0 1px 1px #00b399, inset 0 -1px 1px #00b39f;
+  background-color: #050505; // Dark background to make Keppel pop
+  position: relative;
+  overflow: hidden;
+
+  .nav-link {
+    position: relative;
     display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 
     a {
-      color: $white;
+      color: #ffffff;
       text-decoration: none;
       font-size: 0.95rem;
       transition: color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-      &:hover {
-        color: #00b399;
+    // The Keppel Bloom Effect
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -40px; // Start below the link
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px; // Slightly wider than the text
+      height: 40px;
+      background: radial-gradient(
+        ellipse at center, 
+        rgba(255, 255, 255, 0.8) 0%, 
+        rgba(58, 176, 158, 0.6) 40%, 
+        transparent 75%
+      );
+      filter: blur(6px);
+      opacity: 0;
+      transition: opacity 0.3s ease, bottom 0.3s ease;
+      pointer-events: none;
+    }
+
+    // Trigger effect on hover
+    &:hover {
+      a {
+        color: #5CE6D1; // Brighter Keppel for the text
+      }
+      &::after {
+        opacity: 1;
+        bottom: -38px; // Move up into the frame
       }
     }
   }
+}
 
-  .btn-secondary {
-    color: $white;
-    font-size: 1.6rem;
-    margin: 0 15px;
-    display: inline-block;
-    vertical-align: middle;
-    transition: color 0.3s ease;
+  
+}
 
-    &:hover {
-      color: #00b399;
-      transform: translateY(-2px);
-    }
+.button {
+    color: white;
+    text-transform: capitalize;
+    background-color: #0000;
+    background-image: radial-gradient(circle, #02241f, #00000a);
+    border-radius: .75rem;
+    flex-flow: row;
+    flex: none;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    margin-bottom: 0;
+    padding: .875rem 1.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 1px 1px #00b399, inset 0 -1px 1px #00b39f;
+    transition: box-shadow 0.3s ease;
   }
+.button::after {
+  content: "";
+  position: absolute;
+  bottom: -25px; /* Start below the button */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%; /* Wide flare */
+  height: 40px;
+  /* Keppel Gradient: White core to Keppel outer */
+  background: radial-gradient(
+    ellipse at center, 
+    #ffffff 0%, 
+    #3AB09E 35%, 
+    rgba(58, 176, 158, 0) 70%
+  );
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.4s ease, bottom 0.4s ease;
+  pointer-events: none;
+}
 
-  .btn-primary {
-    color: #050505;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
+/* Trigger on Hover */
+.button:hover::after {
+  opacity: 1;
+  bottom: -28px; /* Moves the light up into view */
 }
 
