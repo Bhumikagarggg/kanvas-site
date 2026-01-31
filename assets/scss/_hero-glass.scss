@@ -2,6 +2,8 @@
   height: 500vh; /* This is your animation duration */
   position: relative; /* Necessary for sticky child */
   overflow: clip;
+  margin: 0;
+  padding:0;
 }
 #hero {
   position: sticky;
@@ -23,14 +25,6 @@
   position: absolute;
   bottom: -23%;   /* Starting Point Bottom */
   right: 10%;    /* Starting Point Right */ 
-}
-
-#dashboard-preview {
-  opacity: 0;
-  z-index: 10;
-  pointer-events: none;
-  /* Start smaller and tilted for the zoom effect */
-  transform: scale(0.5) rotateZ(20deg);
 }
 
 .header-hand-image-wrapper {
@@ -66,10 +60,16 @@
 }
 
 .hero-content {
-  position: relative;
-  z-index: 20; 
-  text-align: center;
-  color: #fff;
+  z-index: 5;
+    grid-column-gap: 3rem;
+    grid-row-gap: 3rem;
+    text-align: center;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 60%;
+    display: flex;
+    position: absolute;
   
   h1 { 
     font-size: clamp(2rem, 8vw, 4rem); 
@@ -100,7 +100,7 @@
     text-decoration: none;
     display: flex;
     position: absolute;
-    bottom:230px;
+    bottom:100px;
     left: 40px;
 }
 .w-inline-block {
@@ -134,4 +134,20 @@
   margin-bottom: 30px;
   font-weight: 500;
   transform: rotate(90deg);
+}
+
+.header-image-wrapper {
+    opacity: 0;
+    border-radius: .75rem;
+    width: 100vw;
+    height: 500px;
+    display: block;
+    transform: translate(-10px, 30px) rotate(0deg);
+}
+
+.header-content-wrapper {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
 }

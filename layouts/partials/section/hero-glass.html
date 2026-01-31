@@ -1,23 +1,36 @@
 <div class="hero-scroll-track">
-  {{ partial "header.html" . }}
   <section class="hero glass tilt" id="hero">
     {{ partial "section/hero/header-hands.html" . }}
-    <div class="hero-content" style="will-change: opacity, transform;
-    opacity: 1;
-    transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
-    transform-style: preserve-3d;">
-      <h1>Simplifying complexity</h1>
-      <p>enabling your growth</p>
+    <div class="header-content-wrapper">
+      <div class="hero-content" style="will-change: opacity, transform;
+      opacity: 1;
+      transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+      transform-style: preserve-3d;">
+        <h1 class="heading-style-h1 linnear-color">Simplifying complexity enabling your growth</h1>
+        <a href="#" class="button w-inline-block"><div class="button-text">Started Now</div></a>
+      </div>
+      <div class="header-image-wrapper" style="will-change: transform, opacity; transform: translate3d(-63.4735px, -36.519px, 0px) scale3d(0.48695, 0.48695, 1) rotateX(0deg) rotateY(0deg) rotateZ(24deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 0;">
+        <div id="cube-scene" style="height: 80vh; width: 100%; position: relative; overflow: hidden;">
+          <canvas class="absolute inset-0 w-full h-full"></canvas>
+
+          <!-- Overlay gradient (radial fade) -->
+          <div class="pointer-events-none absolute inset-0 
+                      bg-[radial-gradient(ellipse_at_center,transparent_0%,transparent_50%,rgba(0,0,0,0.5)_100%)]">
+          </div>
+
+          <!-- Scanlines effect -->
+          <div class="pointer-events-none absolute inset-0 opacity-[0.03]
+                      bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(255,255,255,0.03)_2px,rgba(255,255,255,0.03)_4px)]">
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="dashboard-preview" class="dashboard-hidden" style="will-change: transform, opacity;
-    transform: translate3d(0px, 0px, 0px) scale3d(0.4, 0.4, 1) rotateX(0deg) rotateY(0deg) rotateZ(24deg) skew(0deg, 0deg);
-    transform-style: preserve-3d;
-    opacity: 0;">
-        <img src="https://c0demine.webflow.io/" alt="Dashboard">
-    </div>
-    
   </section>
 </div>
     <!-- <script src="/scripts/hero-glass.js"></script>
     <script src="/scripts/multi-player-cursors.js"></script> -->
 <script src="/scripts/hero-hand-animation.js"></script>
+<script type="module">
+  import initCubeScene from "/js/cube-scene.js";
+  initCubeScene("cube-scene");
+</script>
