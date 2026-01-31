@@ -61,27 +61,53 @@
 
 .hero-content {
   z-index: 5;
-    grid-column-gap: 3rem;
-    grid-row-gap: 3rem;
-    text-align: center;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 60%;
-    display: flex;
-    position: absolute;
+  grid-column-gap: 3rem;
+  grid-row-gap: 3rem;
+  text-align: center;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 60%;
+  display: flex;
+  position: absolute;
   
-  h1 { 
-    font-size: clamp(2rem, 8vw, 4rem); 
-    margin-bottom: 0; 
-    margin-left: 7rem;
+  h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    margin-bottom: 0;
+
+    /* We add a 1% overlap (e.g., 24% to 26%) to soften the color changes */
+    background-image: linear-gradient(
+      140deg,
+      #0b1f1c 0%,
+      #0f3b36 24%, 
+      #5ce6d1 50%,
+      #0f3b36 76%,
+      #0b1f1c 100%
+    );
+
+    /* Using 400% makes the math cleaner for the browser to loop */
+    background-size: 400% 100%;
+    background-position: 0% 0%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    /* transform helps the browser use the GPU for smoother lines */
+    transform: translateZ(0);
+    
+    animation: gradientMove 8s linear infinite;
   }
-  
-  p { 
-    font-size: 1.5rem; 
-    opacity: 0; // Starts hidden, fades in via JS
-    transform: translateY(20px);
-    transition: all 0.6s ease;
+
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      /* Moving 200% on a 400% width creates a perfect, seamless slide */
+      background-position: 200% 0%; 
+    }
   }
 }
 #dashboard-preview {
@@ -143,6 +169,7 @@
     height: 500px;
     display: block;
     transform: translate(-10px, 30px) rotate(0deg);
+    padding-bottom:30rem;
 }
 
 .header-content-wrapper {
