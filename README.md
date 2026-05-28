@@ -21,7 +21,7 @@ This repository contains the website for the Meshery extension Kanvas - https://
 make site
 ```
 
-## Contributor Guides and Handbook
+## Contributor Guid. es and Handbook
 
 - 📚 [Instructions for contributing to documentation](https://docs.meshery.io/project/contributing/contributing-docs)
 - [Meshery documentation site and source](https://github.com/meshery/meshery/tree/master/docs)
