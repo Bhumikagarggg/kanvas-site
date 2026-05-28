@@ -10,7 +10,7 @@
 [![Twitter](https://img.shields.io/twitter/follow/kanvas_new.svg?style=social)](https://x.com/intent/follow?screen_name=kanvas_new)
 [![GitHub](https://img.shields.io/github/stars/meshery-extensions/kanvas-site.svg?style=social&label=Star)](https://github.com/meshery-extensions/kanvas-site)
 
-This repository contains the website for the Meshery extension Kanvas - https://www.kanvas.new
+This repository cont ains the website for the Meshery extension Kanvas - https://www.kanvas.new
 
 ### Prerequisites
 - Hugo (extended version)
