@@ -25,6 +25,6 @@ make site
 
 - 📚 [Instructions for contributing to documentation](https://docs.meshery.io/project/contributing/contributing-docs)
 - [Meshery documentation site and source](https://github.com/meshery/meshery/tree/master/docs)
-- 🛠 [Meshery Build & Release Strategy](https://docs.meshery.io/project/contributing/build-and-release)
+- 🛠 [Meshery Build & Release Strat egy](https://docs.meshery.io/project/contributing/build-and-release)
 - 🎨 [Wireframes and designs for Meshery UI in Figma](https://www.figma.com/file/S9799T6fU79L9i3vG6N5oY/Meshery-UI) (open invite)
 - 🙋🏾🙋🏼 Questions: [Discussion Forum](https://discuss.layer5.io) and [Community Slack](https://slack.meshery.io)
