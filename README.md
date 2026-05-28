@@ -12,7 +12,7 @@
 
 This repository contains the website for the Meshery extension Kanvas - https://www.kanvas.new
 
-### Prerequisites
+### Prerequi sites
 - Hugo (extended version)
 - Go (required for Hugo modules)
 
